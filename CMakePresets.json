@@ -1,0 +1,62 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 28,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "release",
+      "description": "Default CMake preset",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "Qt6_DIR": "/home/toms/qt-6.8.2/6.8.2/gcc_64/lib/cmake/Qt6/",
+        "VTK_DIR": "/home/toms/Desktop/work/vtk/release/lib/cmake/vtk-9.4/",
+        "CMAKE_C_COMPILER": "/usr/bin/gcc",
+        "CMAKE_CXX_COMPILER": "/usr/bin/g++"
+      }
+    },
+    {
+      "name": "debug",
+      "description": "Default CMake preset",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "Qt6_DIR": "/home/toms/qt-6.8.2/6.8.2/gcc_64/lib/cmake/Qt6/",
+        "VTK_DIR": "/home/toms/Desktop/work/vtk/release/lib/cmake/vtk-9.4/",
+        "CMAKE_C_COMPILER": "/usr/bin/gcc",
+        "CMAKE_CXX_COMPILER": "/usr/bin/g++"
+      }
+    },
+    {
+      "name": "release-clang",
+      "description": "Default CMake preset",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "Qt6_DIR": "/home/toms/qt-6.8.2/6.8.2/gcc_64/lib/cmake/Qt6/",
+        "VTK_DIR": "/home/toms/Desktop/work/vtk/release/lib/cmake/vtk-9.4/",
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++"
+      }
+    },
+    {
+      "name": "debug-clang",
+      "description": "Default CMake preset",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "Qt6_DIR": "/home/toms/qt-6.8.2/6.8.2/gcc_64/lib/cmake/Qt6/",
+        "VTK_DIR": "/home/toms/Desktop/work/vtk/release/lib/cmake/vtk-9.4/",
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++"
+      }
+    }
+  ]
+}

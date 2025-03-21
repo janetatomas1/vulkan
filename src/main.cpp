@@ -3,6 +3,5 @@
 
 int main() {
     Application app;
-    app.exec();
-    return 0;
+    return app.exec();
 }

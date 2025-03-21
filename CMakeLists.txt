@@ -4,13 +4,17 @@ project(vulkan)
 
 set(CMAKE_CXX_COMPILER "g++")
 
-set(glfw3_DIR "${CMAKE_SOURCE_DIR}/3rdParty/glfw-3.4/lib/cmake/glfw3/")
-find_package(glfw3 REQUIRED)
 
 add_executable(
-    main
-    src/application.cpp
-    src/main.cpp
+    main src/main.cpp src/application.cpp
 )
-target_include_directories(main PUBLIC src/ "/home/janetatomas11/Desktop/tj/vulkan/3rdParty/glfw-3.4/include")
-target_link_libraries(main "/home/janetatomas11/Desktop/tj/vulkan/3rdParty/glfw-3.4/lib/libglfw3.a")
+
+set(glfw3_DIR "/home/toms/Desktop/tj/VulkanTutorial/code/glfw-3.4/lib/cmake/glfw3")
+set(glm_DIR "/home/toms/Desktop/tj/VulkanTutorial/code/glm-1.0.1/release/share/glm/")
+set(tinyobjloader_DIR "/home/toms/Desktop/tj/VulkanTutorial/code/tinyobjloader-1.0.6/release/lib/tinyobjloader/cmake/")
+set(STB_INCLUDEDIR "/home/toms/Desktop/tj/VulkanTutorial/code/stb/")
+
+find_package(glfw3 REQUIRED)
+
+target_include_directories(main PUBLIC include "/home/toms/Desktop/tj/VulkanTutorial/code/glfw-3.4/include")
+target_link_libraries(main "/home/toms/Desktop/tj/VulkanTutorial/code/glfw-3.4/lib/libglfw3.a")
