@@ -17,4 +17,4 @@ set(STB_INCLUDEDIR "/home/toms/Desktop/tj/VulkanTutorial/code/stb/")
 find_package(glfw3 REQUIRED)
 
 target_include_directories(main PUBLIC include "/home/toms/Desktop/tj/VulkanTutorial/code/glfw-3.4/include")
-target_link_libraries(main "/home/toms/Desktop/tj/VulkanTutorial/code/glfw-3.4/lib/libglfw3.a")
+target_link_libraries(main "/home/toms/Desktop/tj/VulkanTutorial/code/glfw-3.4/lib/libglfw3.a" "vulkan")

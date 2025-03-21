@@ -5,7 +5,7 @@
 #include "application.h"
 
 
-int Application::init() {
+void Application::init() {
     if (!glfwInit()) {
         throw std::runtime_error("Failed to initialize GLFW\n");
     }
@@ -24,16 +24,41 @@ int Application::init() {
     } else {
         throw std::runtime_error("Failed to get video mode\n");
     }
-
-    return 0;
 }
 
-int Application::mainloop() {
+void Application::init_vulkan() {
+    create_instance();
+}
+
+void Application::create_instance() {
+    VkApplicationInfo appInfo = {};
+    appInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
+    appInfo.pApplicationName = TITLE;
+    appInfo.applicationVersion = VK_MAKE_VERSION(1, 0, 0);
+    appInfo.engineVersion = VK_MAKE_VERSION(1, 0, 0);
+    appInfo.pEngineName = "No engine";
+    appInfo.apiVersion = VK_API_VERSION_1_0;
+
+    VkInstanceCreateInfo createInfo = {};
+    createInfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
+
+    uint32_t glfwExtensionCount = 0;
+    const char **glfwExtensions = glfwGetRequiredInstanceExtensions(&glfwExtensionCount);
+
+    createInfo.enabledExtensionCount = glfwExtensionCount;
+    createInfo.ppEnabledExtensionNames = glfwExtensions;
+
+    createInfo.enabledLayerCount = 0;
+
+    if (vkCreateInstance(&createInfo, nullptr, &instance) != VK_SUCCESS) {
+        throw std::runtime_error("failed to create instance!");
+    }
+}
+
+void Application::mainloop() {
     while (!glfwWindowShouldClose(window)) {
         glfwPollEvents();
     }
-
-    return 0;
 }
 
 void Application::cleanup() {
